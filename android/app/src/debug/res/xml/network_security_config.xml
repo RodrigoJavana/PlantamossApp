@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Solo para builds debug: permite http a cualquier host (otras IPs de
+     laboratorio) y confia en certificados de usuario (proxy de pruebas).
+     NO se incluye en release. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

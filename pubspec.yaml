@@ -1,0 +1,38 @@
+name: plantamoss
+description: "Plantamoss - catalogo de flora mexicana (app movil)."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  # Peticiones HTTP a la API .NET
+  http: ^1.6.0
+  # Guardar sesion (token + usuario) y la IP del servidor
+  shared_preferences: ^2.5.6
+  flutter_secure_storage: ^11.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Imagenes copiadas del proyecto web (public/img)
+  assets:
+    - assets/img/
+    # Contornos de los estados del mapa (mismos datos que la web)
+    - assets/data/
+
+# path_provider_foundation >= 2.5 usa "native assets" (objective_c) y su hook
+# falla al compilar en Windows cuando la ruta del usuario tiene espacios.
+# Se fija la versión anterior (solo afecta iOS/macOS; misma API).
+dependency_overrides:
+  path_provider_foundation: 2.4.4
